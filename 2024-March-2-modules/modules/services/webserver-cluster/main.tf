@@ -72,11 +72,11 @@ resource "aws_security_group" "webserver-lc-sg" {
  }
 }
 
-resource "aws_security_group_rule" "allow_https_inbound" {
- from_port         = 443
+resource "aws_security_group_rule" "allow_tcp8081_inbound" {
+ from_port         = 8081
  protocol          = "tcp"
  security_group_id = aws_security_group.webserver-lc-sg.id
- to_port           = 443
+ to_port           = 8081
  type              = "ingress"
  cidr_blocks = local.all_ips
  ipv6_cidr_blocks = local.all_ips_v6
